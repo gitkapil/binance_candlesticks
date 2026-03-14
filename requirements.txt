@@ -1,0 +1,7 @@
+behave-html-formatter
+# requirements.txt for Binance Kline BDD Test Framework
+behave
+behave-html-formatter
+websockets
+pytest
+pytest-html

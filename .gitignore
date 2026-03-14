@@ -1,0 +1,19 @@
+# Python virtual environment
+venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# macOS system files
+.DS_Store
+
+# Test reports (optional, keep HTML if needed)
+reports/report.json
+reports/report.txt
+
+# Other temporary files
+*.log
+
+# Ignore Jupyter notebooks (if any)
+*.ipynb
