@@ -1,0 +1,247 @@
+<html><head><title>Behave Test Report</title></head><body>
+<h1>Behave Test Report</h1>
+<h2>Feature: Kline/Candlestick Stream Validation</h2>
+<h3>Scenario: </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>N/A</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>N/A</b></li>
+</ul>
+<h3>Scenario: Verify kline open price matches first trade price -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline open price should equal the first trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline open price matches first trade price -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BTCUSDT - <b>passed</b></li>
+<li>And I subscribe to kline stream for BTCUSDT with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline open price should equal the first trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline open price matches first trade price -- @1.3 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for ETHBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for ETHBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline open price should equal the first trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline close price matches last trade price -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline close price should equal the last trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline close price matches last trade price -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BTCUSDT - <b>passed</b></li>
+<li>And I subscribe to kline stream for BTCUSDT with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline close price should equal the last trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline close price matches last trade price -- @1.3 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for ETHBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for ETHBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline close price should equal the last trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline high price matches maximum trade price -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline high price should equal the maximum trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline high price matches maximum trade price -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BTCUSDT - <b>passed</b></li>
+<li>And I subscribe to kline stream for BTCUSDT with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline high price should equal the maximum trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline high price matches maximum trade price -- @1.3 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for ETHBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for ETHBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline high price should equal the maximum trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline low price matches minimum trade price -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline low price should equal the minimum trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline low price matches minimum trade price -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BTCUSDT - <b>passed</b></li>
+<li>And I subscribe to kline stream for BTCUSDT with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline low price should equal the minimum trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline low price matches minimum trade price -- @1.3 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for ETHBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for ETHBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline low price should equal the minimum trade price in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline volume matches sum of trade quantities -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline base asset volume should equal the sum of all trade quantities in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline volume matches sum of trade quantities -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BTCUSDT - <b>passed</b></li>
+<li>And I subscribe to kline stream for BTCUSDT with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline base asset volume should equal the sum of all trade quantities in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline volume matches sum of trade quantities -- @1.3 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for ETHBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for ETHBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline base asset volume should equal the sum of all trade quantities in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline number of trades matches trade count -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline number of trades should equal the count of trades in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline number of trades matches trade count -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BTCUSDT - <b>passed</b></li>
+<li>And I subscribe to kline stream for BTCUSDT with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline number of trades should equal the count of trades in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify kline number of trades matches trade count -- @1.3 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for ETHBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for ETHBTC with interval 1m - <b>passed</b></li>
+<li>When I receive trade data for a complete 1m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then the kline number of trades should equal the count of trades in that minute - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify multiple consecutive intervals -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1m - <b>passed</b></li>
+<li>When I receive data for 5 consecutive 1m intervals - <b>passed</b></li>
+<li>Then each kline should correctly aggregate the trades within its respective time window - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify multiple consecutive intervals -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BTCUSDT - <b>passed</b></li>
+<li>And I subscribe to kline stream for BTCUSDT with interval 1m - <b>passed</b></li>
+<li>When I receive data for 3 consecutive 1m intervals - <b>passed</b></li>
+<li>Then each kline should correctly aggregate the trades within its respective time window - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify different intervals -- @1.1 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 5m - <b>passed</b></li>
+<li>When I receive trade data for a complete 5m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then all kline fields should correctly aggregate trades for the 5m window - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify different intervals -- @1.2 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 15m - <b>passed</b></li>
+<li>When I receive trade data for a complete 15m interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then all kline fields should correctly aggregate trades for the 15m window - <b>passed</b></li>
+</ul>
+<h3>Scenario: Verify different intervals -- @1.3 </h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for BNBBTC - <b>passed</b></li>
+<li>And I subscribe to kline stream for BNBBTC with interval 1h - <b>passed</b></li>
+<li>When I receive trade data for a complete 1h interval - <b>passed</b></li>
+<li>And I receive the corresponding kline for that interval - <b>passed</b></li>
+<li>Then all kline fields should correctly aggregate trades for the 1h window - <b>passed</b></li>
+</ul>
+<h3>Scenario: Handle incomplete interval correctly</h3>
+<ul>
+<li>Given Binance Testnet WebSocket streams are available at "wss://stream.testnet.binance.vision/ws" - <b>passed</b></li>
+<li>And I have configured the test with timeout of 60 seconds - <b>passed</b></li>
+<li>Given I subscribe to trade stream for "BNBBTC" - <b>passed</b></li>
+<li>And I subscribe to kline stream for "BNBBTC" with interval "1m" - <b>passed</b></li>
+<li>When I receive a kline with x=false (not closed) - <b>passed</b></li>
+<li>Then I should not validate it against trades - <b>passed</b></li>
+<li>And wait for the next update with x=true before validation - <b>passed</b></li>
+</ul>
+</body></html>

@@ -13,11 +13,14 @@ def step_subscribe_kline_stream(context, symbol, interval):
 
 @when('I receive trade data for a complete {interval} interval')
 def step_receive_trade_data(context, interval):
-    context.ws_client.collect_trades_for_interval(interval)
+    # Use asyncio for async method
+    import asyncio
+    asyncio.run(context.ws_client._collect_trades_for_interval(interval))
 
 @when('I receive the corresponding kline for that interval')
 def step_receive_kline(context):
-    context.ws_client.collect_kline_for_interval()
+    import asyncio
+    asyncio.run(context.ws_client._collect_kline_for_interval())
 
 @then('the kline open price should equal the first trade price in that minute')
 def step_validate_kline_open(context):
@@ -45,7 +48,8 @@ def step_validate_kline_count(context):
 
 @when('I receive data for {count} consecutive {interval} intervals')
 def step_receive_multiple_intervals(context, count, interval):
-    context.ws_client.collect_multiple_intervals(int(count), interval)
+    import asyncio
+    asyncio.run(context.ws_client._collect_multiple_intervals(int(count), interval))
 
 @then('each kline should correctly aggregate the trades within its respective time window')
 def step_validate_multiple_klines(context):
@@ -65,5 +69,17 @@ def step_wait_for_kline_closed(context):
 
 @when('I receive a kline with x=false (not closed)')
 def step_receive_incomplete_kline(context):
-    # Implement logic or mark as pending
-    pass
+    # Wait for a kline with x=false
+    import asyncio
+    import websockets
+    async def wait_for_incomplete_kline():
+        uri = f"{context.ws_client.ws_url}?streams={context.ws_client.kline_stream}"
+        async with websockets.connect(uri, ssl=context.ws_client.ssl_context) as ws:
+            while True:
+                msg = await ws.recv()
+                data = json.loads(msg)
+                kline = data.get('data', {}).get('k', {})
+                if not kline.get('x'):
+                    context.ws_client.klines.append(kline)
+                    break
+    asyncio.run(wait_for_incomplete_kline())
