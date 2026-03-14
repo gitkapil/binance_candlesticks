@@ -99,20 +99,31 @@ class BinanceWebSocketClient:
         self.kline_stream = f"{symbol.lower()}@kline_{interval}"
 
     async def collect_trades_for_interval(self, interval):
+        import traceback
         self.trades = []
         uri = f"{self.ws_url}?streams={self.trade_stream}"
-        async with websockets.connect(uri, ssl=self.ssl_context) as ws:
-            start_time = None
-            while True:
-                msg = await ws.recv()
-                data = json.loads(msg)
-                trade = data.get('data', {})
-                if not start_time:
-                    start_time = trade['T'] // 1000  # trade time in seconds
-                current_time = trade['T'] // 1000
-                if current_time - start_time >= self._interval_seconds(interval):
-                    break
-                self.trades.append(trade)
+        print(f"Connecting to {uri} for trades...")
+        try:
+            async with websockets.connect(uri, ssl=self.ssl_context) as ws:
+                start_time = None
+                while True:
+                    msg = await ws.recv()
+                    print(f"Received message: {msg}")
+                    try:
+                        data = json.loads(msg)
+                        trade = data.get('data', {})
+                        if not start_time:
+                            start_time = trade.get('T', 0) // 1000  # trade time in seconds
+                        current_time = trade.get('T', 0) // 1000
+                        if current_time - start_time >= self._interval_seconds(interval):
+                            break
+                        self.trades.append(trade)
+                    except Exception as e:
+                        print(f"Error parsing trade message: {e}")
+                        traceback.print_exc()
+        except Exception as e:
+            print(f"WebSocket connection error: {e}")
+            traceback.print_exc()
 
     async def collect_kline_for_interval(self):
         self.klines = []
