@@ -1,8 +1,8 @@
 
-# Binance Kline BDD Test Framework
+# Binance candlesticks BDD Test Framework
 
 ## What Does This Test?
-This framework checks if Binance's market summary data (candlesticks/klines) matches the real trading data. It ensures:
+This framework checks if Binance's market summary data candlesticks match the real trading data. It ensures:
 - Opening price matches the first trade
 - Closing price matches the last trade
 - Highest/lowest prices match the highest/lowest trades
@@ -13,14 +13,13 @@ This framework checks if Binance's market summary data (candlesticks/klines) mat
 
 This helps anyone trust Binance's market data for accuracy.
 
-## Step-by-Step Guide (For Non-Technical Users)
+## Step-by-Step Guide
 
 ### 1. Install Required Software
-- **Python 3.11**: Download from [python.org](https://www.python.org/downloads/) or use Homebrew on Mac:
+- **Python 3.11**: 
   ```sh
   brew install python@3.11
   ```
-- **Git** (optional, for downloading code): [git-scm.com](https://git-scm.com/downloads)
 
 ### 2. Open Terminal and Go to Project Folder
 ```sh
@@ -64,6 +63,3 @@ Open the file `reports/report.html` in your web browser to see the test results.
 - HTML report is generated in `reports/report.html`.
 - WebSocket client disables SSL verification for testnet.
 
----
-**This guide lets anyone, even without technical knowledge, check if Binance’s market data is accurate using this framework.**
-- Known limitation: Placeholder methods in `websocket_client.py` need full async implementation for real data collection.
